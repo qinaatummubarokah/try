@@ -44,9 +44,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -93,9 +90,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -138,9 +132,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -183,9 +174,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -228,9 +216,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
