@@ -1,0 +1,284 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "sean",
+        "version": "1.0.0",
+        "title": "Payment Channel API Documentation",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Book Request",
+            "description": "Example API for requesting and return book requests"
+        }
+    ],
+    "paths": {
+        "/v1/api/payment/get-token": {
+            "post": {
+                "tags": [
+                    "Web Payment"
+                ],
+                "summary": "Get token to process payment",
+                "requestBody": {
+                    "description": "Before you process a web payment, you have to get a token first from SPIN using HTTP POST. The body in JSON and the response will be in JSON.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/bookRequestPostBody"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/v1/api/payment/do-payment": {
+            "post": {
+                "tags": [
+                    "Web Payment"
+                ],
+                "summary": "Process payment",
+                "parameters": [
+                    {
+                        "name": "auth-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "auth-token",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "POST to SPIN using the auth token and JSON data to get the Payment URL.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestDoPayment"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/v1/api/payment/check-payment?invoice_code={invoice_code}": {
+            "get": {
+                "tags": [
+                    "Web Payment"
+                ],
+                "summary": "Check payment",
+                "parameters": [
+                    {
+                        "name": "auth-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "auth-token",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "invoice_code",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/v1/api/payment/reverse-payment?invoice_code={invoice_code}": {
+            "get": {
+                "tags": [
+                    "Web Payment"
+                ],
+                "summary": "Reverse payment",
+                "parameters": [
+                    {
+                        "name": "auth-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "auth-token",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "invoice_code",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/v1/api/payment/cancel-payment?invoice_code={invoice_code}": {
+            "get": {
+                "tags": [
+                    "Web Payment"
+                ],
+                "summary": "Cancel payment",
+                "parameters": [
+                    {
+                        "name": "auth-key",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "auth-token",
+                        "in": "header",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    },
+                    {
+                        "name": "invoice_code",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of the cat that we want to match",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "bookRequestPostBody": {
+                "type": "object",
+                "properties": {
+                    "api_key": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "api_secret": {
+                        "type": "string",
+                        "format": "string"
+                    }
+                }
+            },
+            "RequestDoPayment" : {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "integer",
+                        "format": "string"
+                    },
+                    "wallet_id": {
+                        "type": "integer",
+                        "format": "string"
+                    },
+                    "mid": {
+                        "type": "integer",
+                        "format": "string"
+                    },
+                    "invoice_code": {
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "merchant_callback": {
+                        "type": "string",
+                        "format": "url"
+                    }
+                }
+            },
+        }
+    }
+}
