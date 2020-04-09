@@ -41,19 +41,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
-						"content": {
-							"application/json": {
-								"schema":{
-									"type": "string"
-								},
-								 "examples":{
-									"response":{
-										"value":"hakkkkkkk"
-									}
-								}
-							}
-						}
+                        "description": "OK"
                     },
                     "400": {
                         "description": "Failed. Bad post data."
