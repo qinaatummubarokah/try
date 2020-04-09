@@ -36,26 +36,20 @@ info:
       - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
       - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
 
-    # AVAILABLE API’s
-    There are only 3 available API’s that can be used with spin merchants. The API’s are used to either to
-    begin the transaction flow by obtaining the token, kick off a new payment by passing the payment
-    parameters or to check the status of an existing payment. 
+    # Authentication
+    The API need to be authenticated using api-key and api-secret. You can get the key and secret from SPIN Integration Team.
+    There will be 2 key and secret, 1 will be use in development and 1 will be use in production. 
 
-    Get the token used based on the user’s api-key and api-secret:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/get-token
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/get-token
+    Example Development Key and Secret
+      - dev_my_store_key
+      - dev_secret_abcdefghjiklmnopqrstuvwxyz
     
-    Begin the payment process flow:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/do-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/do-payment
+    Example Production Key
+      - my_store_key
+      - secret_abcdefghjiklmnopqrstuvwxyz
     
-    Will check the payment status of a given payment provided the payment session id:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/check-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/check-payment
-    
-    Will reverse the payment provided the payment session id:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
+    Please keep your key and secret at some place safe and encrypt it, so no one can access the key easily and see clearly. 
+    The key will be the credential to use SPIN services. Any unauthorized use of the key will be not our responsibility.
 
     <SecurityDefinitions />
 
@@ -76,7 +70,7 @@ externalDocs:
   description: Find out how to create Github repo for your OpenAPI spec.
   url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
-  - name: pet
+  - name: Web Payment SPIN API
     description: Everything about your Pets
   - name: store
     description: Access to Petstore orders
