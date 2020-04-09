@@ -7,6 +7,10 @@
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
+        },
+        "x-logo":{
+            "url": "https://redocly.github.io/redoc/petstore-logo.png",
+            "altText": "Petstore logo"
         }
     },
     "servers": [
