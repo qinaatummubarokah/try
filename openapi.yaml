@@ -398,12 +398,12 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /store/inventory:
+  /v1/api/payment/get-token:
     get:
       tags:
-        - store
-      summary: Returns pet inventories by status
-      description: Returns a map of status codes to quantities
+        - Web Payment SPIN
+      summary: Get Token
+      description: Before you process a web payment, you have to get a token first from SPIN using HTTP POST. The body in JSON and the response will be in JSON.
       operationId: getInventory
       responses:
         '200':
