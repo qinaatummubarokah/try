@@ -7,6 +7,10 @@
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
+        },
+        "x-logo":{
+            "url": "https://redocly.github.io/redoc/petstore-logo.png",
+            "altText": "Petstore logo"
         }
     },
     "servers": [
@@ -44,6 +48,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -90,6 +97,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -132,6 +142,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -174,6 +187,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -216,6 +232,9 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/id"
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
