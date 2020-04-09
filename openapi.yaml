@@ -55,6 +55,12 @@ info:
     Will reverse the payment provided the payment session id:
       - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
       - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
+      
+      
+    taekkkkkk
+    Will reverse the payment provided the payment session id:
+      - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
+      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
 
     <SecurityDefinitions />
 
