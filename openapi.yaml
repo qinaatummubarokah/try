@@ -116,7 +116,7 @@ paths:
           format: int64
     post:
       tags:
-        - pet
+        - Web Payment
       summary: Get token to process payment
       description: Add new pet to the store inventory.
       operationId: addPet
@@ -190,10 +190,10 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  '/pet/{petId}':
+  '/v1/api/payment/do-payment':
     get:
       tags:
-        - pet
+        - Web Payment
       summary: Find pet by ID
       description: Returns a single pet
       operationId: getPetById
