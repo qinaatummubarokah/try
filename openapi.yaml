@@ -70,9 +70,9 @@ externalDocs:
   description: Find out how to create Github repo for your OpenAPI spec.
   url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
-  - name: Web Payment SPIN
+  - name: Web Payment
     description: Web Payment SPIN API
-  - name: store
+  - name: Web Payment SPIN
     description: Access to Petstore orders
   - name: user
     description: Operations about user
@@ -88,7 +88,7 @@ x-tagGroups:
   - name: General
     tags:
       - pet
-      - store
+      - Web Payment SPIN
   - name: User Management
     tags:
       - user
