@@ -18,12 +18,6 @@
             "url": "/"
         }
     ],
-    "tags": [
-        {
-            "name": "Book Request",
-            "description": "Example API for requesting and return book requests"
-        }
-    ],
     "paths": {
         "/v1/api/payment/get-token": {
             "post": {
