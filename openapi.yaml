@@ -19,18 +19,19 @@ info:
     There are only 3 available API’s that can be used with spin merchants. The API’s are used to either to
     begin the transaction flow by obtaining the token, kick off a new payment by passing the payment
     parameters or to check the status of an existing payment.
+    
     Get the token used based on the user’s api-key and api-secret:
-      PROD - https://open-api-web.spinpay.id/v1/api/payment/get-token
-      DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/get-token
+      - PROD - https://open-api-web.spinpay.id/v1/api/payment/get-token
+      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/get-token
     Begin the payment process flow:
-      PROD - https://open-api-web.spinpay.id/v1/api/payment/do-payment
-      DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/do-payment
+      - PROD - https://open-api-web.spinpay.id/v1/api/payment/do-payment
+      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/do-payment
     Will check the payment status of a given payment provided the payment session id:
-      PROD - https://open-api-web.spinpay.id/v1/api/payment/check-payment
-      DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/check-payment
+      - PROD - https://open-api-web.spinpay.id/v1/api/payment/check-payment
+      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/check-payment
     Will reverse the payment provided the payment session id:
-      PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
-      DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment 
+      - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
+      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment 
 
     # Cross-Origin Resource Sharing
     This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
