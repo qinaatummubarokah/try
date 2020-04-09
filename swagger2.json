@@ -7,17 +7,15 @@
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
+        },
+        "x-logo":{
+            "url": "https://redocly.github.io/redoc/petstore-logo.png",
+            "altText": "Petstore logo"
         }
     },
     "servers": [
         {
             "url": "/"
-        }
-    ],
-    "tags": [
-        {
-            "name": "Book Request",
-            "description": "Example API for requesting and return book requests"
         }
     ],
     "paths": {
@@ -43,10 +41,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
+                        "description": "OK"
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -93,9 +88,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -114,21 +106,21 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "auth-key",
                         "type": "string"
                     },
                     {
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
                         "name": "invoice_code",
                         "in": "path",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "invoice code transaction",
                         "type": "string"
                     }
                 ],
@@ -138,9 +130,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -159,21 +148,21 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "auth-key",
                         "type": "string"
                     },
                     {
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
                         "name": "invoice_code",
                         "in": "path",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "invoice code transaction",
                         "type": "string"
                     }
                 ],
@@ -183,9 +172,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -204,21 +190,21 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "auth-key",
                         "type": "string"
                     },
                     {
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
                         "name": "invoice_code",
                         "in": "path",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "invoice code transaction",
                         "type": "string"
                     }
                 ],
@@ -228,9 +214,6 @@
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/components/schemas/id"
-                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
