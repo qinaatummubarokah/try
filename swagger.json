@@ -190,21 +190,21 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "auth-key",
                         "type": "string"
                     },
                     {
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
                         "name": "invoice_code",
                         "in": "path",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "invoice code transaction",
                         "type": "string"
                     }
                 ],
