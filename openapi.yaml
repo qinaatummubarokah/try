@@ -52,19 +52,6 @@ info:
     Will reverse the payment provided the payment session id:
       - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
       - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
-      
-    Get the token used based on the user’s api-key and api-secret:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/get-token
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/get-token
-    Get the token used based on the user’s api-key and api-secret:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/do-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/do-payment
-    Get the token used based on the user’s api-key and api-secret:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/check-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/check-payment
-    Get the token used based on the user’s api-key and api-secret:
-      - PROD - https://open-api-web.spinpay.id/v1/api/payment/reverse-payment
-      - DEV - https://dev-open-api-web-1.spinpay.id/v1/api/payment/reverse-payment
 
     <SecurityDefinitions />
 
