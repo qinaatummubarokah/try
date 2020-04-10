@@ -41,10 +41,17 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/ResponsToken"
+                                }
+                            }
+                        }
                     },
-                    "400": {
-                        "description": "Failed. Bad post data."
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -252,11 +259,11 @@
                         "format": "string"
                     },
                     "wallet_id": {
-                        "type": "integer",
+                        "type": "string",
                         "format": "string"
                     },
                     "mid": {
-                        "type": "integer",
+                        "type": "string",
                         "format": "string"
                     },
                     "invoice_code": {
@@ -281,6 +288,16 @@
                         "description": "url",
                         "type": "string",
                         "example": "https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_1586490272104432_6579559_780595_8077598&one_time_token=7470fdc9b918c06cf1d6590e20ae39be09f71e9326fafdea6fa23913e6d6418b"
+                    }
+                }
+            },
+            "Apigentoken" : {
+                "type": "object",
+                "properties": {
+                    "url":{
+                        "description": "api_gen_token",
+                        "type": "string",
+                        "example": "935e4e1b7cdc0657fce323e4865966031ceaef8169a695dc70b728a11e9e9f73"
                     }
                 }
             },
@@ -309,8 +326,39 @@
                     },
                     "data":{
                         "description": "Will return url to process payment",
-                        "allOf":{
+                        "schema":{
                             "$ref": "#/components/schemas/Urldopayment"
+                        }
+                    }
+                }
+            },
+            "ResponsToken" : {
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "description": "API_CALL",
+                        "type": "string",
+                        "example": "API_CALL_1586490272104432_5773512"
+                    },
+                    "status_code":{
+                        "description": "Will return the status based on code",
+                        "type": "string",
+                        "example": "0000"
+                    },
+                    "status":{
+                        "description": "Will return the status as text SUCCESS",
+                        "type": "string",
+                        "example": "GET_API_GEN_TOKEN_SUCCESS"
+                    },
+                    "desc":{
+                        "description": "Will return a description of the status",
+                        "type": "string",
+                        "example": "GET_API_GEN_TOKEN_SUCCESS"
+                    },
+                    "data":{
+                        "description": "Will return url to process payment",
+                        "schema":{
+                            "$ref": "#/components/schemas/Apigentoken"
                         }
                     }
                 }
