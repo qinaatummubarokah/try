@@ -60,14 +60,14 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "api-key value",
                         "type": "string"
                     },
                     {
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "ID of the cat that we want to match",
+                        "description": "SHA256 hash from some parameters.",
                         "type": "string"
                     }
                 ],
@@ -106,7 +106,7 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "auth-key",
+                        "description": "api-key value",
                         "type": "string"
                     },
                     {
@@ -148,7 +148,7 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "auth-key",
+                        "description": "api-key value",
                         "type": "string"
                     },
                     {
@@ -190,7 +190,7 @@
                         "name": "auth-key",
                         "in": "header",
                         "required": true,
-                        "description": "auth-key",
+                        "description": "api-key value",
                         "type": "string"
                     },
                     {
