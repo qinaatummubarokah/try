@@ -43,14 +43,9 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "Success Result":{
+                            "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsToken"
-                                }
-                            },
-                            "Fail Result":{
-                                "schema":{
-                                    "$ref": "#/components/schemas/ResponsTokenFailed"
                                 }
                             }
                         }
