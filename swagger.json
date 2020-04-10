@@ -43,9 +43,14 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "application/json":{
+                            "Success Result":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsToken"
+                                }
+                            },
+                            "Fail Result":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/ResponsTokenFailed"
                                 }
                             }
                         }
@@ -96,9 +101,14 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "application/json":{
+                            "JSON":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPayment"
+                                }
+                            },
+                            "HTML":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/ResponsDoPaymentHtml"
                                 }
                             }
                         }
@@ -301,6 +311,14 @@
                     }
                 }
             },
+            "Apigentokenfailed" : {
+                "type": "object",
+                "properties": {
+                    "url":{
+                        "description": "api_gen_token"
+                    }
+                }
+            },
             "ResponsDoPayment" : {
                 "type": "object",
                 "properties": {
@@ -324,6 +342,19 @@
                         "type": "string",
                         "example": "DO_PAYMENT_SUCCESS"
                     },
+                    "data":{
+                        "description": "Will return url to process payment",
+                        "allOf":[
+                            {
+                                "$ref": "#/components/schemas/Urldopayment"
+                            }
+                        ]
+                    }
+                }
+            },
+            "ResponsDoPaymentHtml":{
+                "type": "object",
+                "properties": {
                     "data":{
                         "description": "Will return url to process payment",
                         "allOf":[
@@ -362,6 +393,39 @@
                         "allOf":[
                             {
                                 "$ref": "#/components/schemas/Apigentoken"
+                            }
+                        ]
+                    }
+                }
+            },
+            "ResponsTokenFailed" :{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "description": "API_CALL",
+                        "type": "string",
+                        "example": "API_CALL_1234567890"
+                    },
+                    "status_code":{
+                        "description": "Will return the status based on code",
+                        "type": "string",
+                        "example": "9999"
+                    },
+                    "status":{
+                        "description": "Will return the status as text FAILED",
+                        "type": "string",
+                        "example": "GET_API_KEY_FAILED"
+                    },
+                    "desc":{
+                        "description": "Will return a description of the status",
+                        "type": "string",
+                        "example": "ERROR CREATING KEY"
+                    },
+                    "data":{
+                        "description": "Will return url to process payment",
+                        "allOf":[
+                            {
+                                "$ref": "#/components/schemas/Apigentokenfailed"
                             }
                         ]
                     }
