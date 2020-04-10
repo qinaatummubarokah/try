@@ -326,9 +326,11 @@
                     },
                     "data":{
                         "description": "Will return url to process payment",
-                        "schema":{
-                            "$ref": "#/components/schemas/Urldopayment"
-                        }
+                        "allOf":[
+                            {
+                                "$ref": "#/components/schemas/Urldopayment"
+                            }
+                        ]
                     }
                 }
             },
@@ -357,9 +359,11 @@
                     },
                     "data":{
                         "description": "Will return url to process payment",
-                        "schema":{
-                            "$ref": "#/components/schemas/Apigentoken"
-                        }
+                        "allOf":[
+                            {
+                                "$ref": "#/components/schemas/Apigentoken"
+                            }
+                        ]
                     }
                 }
             }
