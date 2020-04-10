@@ -9,8 +9,8 @@
             "url": "https://opensource.org/licenses/MIT"
         },
         "x-logo":{
-            "url": "https://redocly.github.io/redoc/petstore-logo.png",
-            "altText": "Petstore logo"
+            "url": "https://i1.wp.com/goodmoney.id/wp-content/uploads/2019/10/spin.jpeg?fit=586%2C381&ssl=1",
+            "altText": "SPIN logo"
         }
     },
     "servers": [
@@ -31,7 +31,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/bookRequestPostBody"
+                                "$ref": "#/components/schemas/RequestToken"
                             }
                         }
                     }
@@ -88,6 +88,13 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/ResponsDoPayment"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -129,7 +136,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "OK"
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -171,7 +178,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "OK"
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -213,7 +220,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "OK"
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -224,7 +231,7 @@
     },
     "components": {
         "schemas": {
-            "bookRequestPostBody": {
+            "RequestToken": {
                 "type": "object",
                 "properties": {
                     "api_key": {
@@ -256,12 +263,58 @@
                         "type": "string",
                         "format": "string"
                     },
+                    "content_type": {
+                        "type": "string",
+                        "format": "string",
+                        "required": false
+                    },
                     "merchant_callback": {
                         "type": "string",
                         "format": "url"
                     }
                 }
             },
+            "Urldopayment" : {
+                "type": "object",
+                "properties": {
+                    "url":{
+                        "description": "url",
+                        "type": "string",
+                        "example": "https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_1586490272104432_6579559_780595_8077598&one_time_token=7470fdc9b918c06cf1d6590e20ae39be09f71e9326fafdea6fa23913e6d6418b"
+                    }
+                }
+            },
+            "ResponsDoPayment" : {
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "description": "API_CALL",
+                        "type": "string",
+                        "example": "API_CALL_1586490272104432_5773512"
+                    },
+                    "status_code":{
+                        "description": "Will return the status based on code",
+                        "type": "string",
+                        "example": "0000"
+                    },
+                    "status":{
+                        "description": "Will return the status as text SUCCESS",
+                        "type": "string",
+                        "example": "DO_PAYMENT_SUCCESS"
+                    },
+                    "desc":{
+                        "description": "Will return a description of the status",
+                        "type": "string",
+                        "example": "DO_PAYMENT_SUCCESS"
+                    },
+                    "data":{
+                        "description": "Will return url to process payment",
+                        "allOf":{
+                            "$ref": "#/components/schemas/Urldopayment"
+                        }
+                    }
+                }
+            }
         }
     }
 }
