@@ -1,7 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "description": "sean",
+        "description": {
+			"#Introduction" : "This documentation is intended to be used as manual to use for SPIN API Payment.In this document will explain in details how to use the API with SPIN and what are the best practices."
+		},
         "version": "1.0.0",
         "title": "Payment Channel API Documentation",
         "license": {
