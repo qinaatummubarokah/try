@@ -43,12 +43,12 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "failed":{
+                            "JSON":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsToken"
                                 }
                             },
-                            "application/json":{
+                            "HTML":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsTokenFailed"
                                 }
