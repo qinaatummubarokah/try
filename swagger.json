@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "description": "SPIN",
+        "description": "sean",
         "version": "1.0.0",
         "title": "Payment Channel API Documentation",
         "license": {
@@ -48,7 +48,7 @@
                                     "$ref": "#/components/schemas/ResponsToken"
                                 }
                             },
-							"Failed":{
+                            "Fail":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsTokenFailed"
                                 }
@@ -137,7 +137,7 @@
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
@@ -153,7 +153,14 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "content":{
+                            "checkpayment":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/ResponsCheckPayment"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Failed. Bad post data."
@@ -179,7 +186,7 @@
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
@@ -221,7 +228,7 @@
                         "name": "auth-token",
                         "in": "header",
                         "required": true,
-                        "description": "sha256(“||%%||” + api-key +“||%%||” + seqance + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
+                        "description": "sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()",
                         "type": "string"
                     },
                     {
@@ -428,6 +435,79 @@
                                 "$ref": "#/components/schemas/Apigentokenfailed"
                             }
                         ]
+                    }
+                }
+            },
+            "ResponsCheckPayment" :{
+                "type": "object",
+                "properties": {
+                    "id":{
+                        "description": "API_CALL",
+                        "type": "string",
+                        "example": "API_CALL_1234567890"
+                    },
+                    "status_code":{
+                        "description": "Will return the status based on code",
+                        "type": "string",
+                        "example": "9999"
+                    },
+                    "status":{
+                        "description": "Will return the status as text FAILED",
+                        "type": "string",
+                        "example": "GET_API_KEY_FAILED"
+                    },
+                    "desc":{
+                        "description": "Will return a description of the status",
+                        "type": "string",
+                        "example": "ERROR CREATING KEY"
+                    },
+                    "data":{
+                        "description": "Will return url to process payment",
+                        "allOf":[
+                            {
+                                "$ref": "#/components/schemas/DataCheckPayment"
+                            }
+                        ]
+                    }
+                }
+            },
+            "DataCheckPayment" : {
+                "type": "object",
+                "properties": {
+                    "wallet_id":{
+                        "description": "SPIN Wallet ID",
+                        "type": "integer",
+                        "example": "085748177755"
+                    },
+                    "merchant_id":{
+                        "description": "SPIN Store Merchant ID",
+                        "type": "string",
+                        "example": "131431020311"
+                    },
+                    "amount":{
+                        "description": "Transaction Amount",
+                        "type": "string",
+                        "example": "200000"
+                    },
+                    "invoice_code":{
+                        "description": "Mechant Invoice Unique ID",
+                        "type": "string",
+                        "example": "ivd105119111"
+                    },
+                    "status_payment":{
+                        "description": "number already registered",
+                        "type": "string",
+                        "example": "COMPLETED"
+                    },
+                    "trx_id":{
+                        "description": "The value returned from the transaction",
+                        "type": "string",
+                        "example": "085748177755"
+                    },
+                    "pay_session_trx":{
+                        "description": "the unique session of the transaction",
+                        "type": "string",
+                        "example": "TRX_158670906323313_2097471_628892_9888700"
                     }
                 }
             }
