@@ -114,9 +114,9 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            success:
               schema:
-                $ref: '#/components/schemas/ResponsToken'
+                $ref: '#/components/schemas/ResponsToken'        
     put:
       tags:
         - pet
