@@ -43,7 +43,7 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "JSON":{
+                            "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsToken"
                                 }
@@ -155,7 +155,7 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "payment":{
+                            "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsCheckPayment"
                                 }
