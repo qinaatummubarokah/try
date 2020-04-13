@@ -117,9 +117,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponsToken'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
+                 mapping:
+                  cat: '#/components/schemas/Cat'
+                  dog: '#/components/schemas/Dog'
     put:
       tags:
         - pet
@@ -152,7 +152,7 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  '/v1/api/payment/do-payment':
+  '/v1/api/payment/do-payment-inilah':
     get:
       tags:
         - Web Payment SPIN
@@ -676,8 +676,8 @@ components:
         data:
           description: Will return url to process payment
           allOf: 
-            - $ref: '#/components/schemas/Apigentoken'
-            - type: object
+            $ref: '#/components/schemas/Apigentoken'
+            type: object
     Apigentoken :
       type: object
       properties :
