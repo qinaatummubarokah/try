@@ -122,6 +122,42 @@ paths:
                 $ref: '#/components/schemas/ResponsTokenFailed'
         '500':
           description: Internal Server Error
+    /v1/api/payment/do-payment:
+    post:
+      tags:
+        - Web Payment SPIN
+      summary: Process payment
+      parameters: 
+        - name: auth-key
+          in: header
+          required: true
+          description: api-key value
+          type: string
+        - name: auth-token
+          in: header
+          required: true
+          description: SHA256 hash from some parameters
+          type: string
+      requestBody:
+        description : process data to get the Payment URL
+        required: true
+        content: 
+            application/json:
+                schema:
+                    $ref: '#/components/schemas/RequestDoPayment'
+      produces: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            success/json:
+              schema:
+                $ref: '#/components/schemas/ResponsToken'
+            failed/json:
+              schema:
+                $ref: '#/components/schemas/ResponsTokenFailed'
+        '500':
+          description: Internal Server Error
     put:
       tags:
         - pet
@@ -847,7 +883,7 @@ components:
       properties:
         id:
           externalDocs:
-            description: "Find more info here"
+            description: Find more info here
             url: "https://example.com"
           description: Pet ID
           allOf:
