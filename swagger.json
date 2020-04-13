@@ -1,12 +1,12 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "description": "sean",
+        "description": "This documentation is intended to be used as manual to use for SPIN API Payment. In this document will explain in details how to use the API with SPIN and what are the best practices.",
         "version": "1.0.0",
         "title": "Payment Channel API Documentation",
         "license": {
-            "name": "MIT",
-            "url": "https://opensource.org/licenses/MIT"
+            "name": "Redoc documentation",
+            "url": "http://localhost:49013/static/tes2.html"
         },
         "x-logo":{
             "url": "https://i1.wp.com/goodmoney.id/wp-content/uploads/2019/10/spin.jpeg?fit=586%2C381&ssl=1",
@@ -113,8 +113,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Failed. Bad post data."
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -162,8 +162,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Failed. Bad post data."
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -204,8 +204,8 @@
                     "200": {
                         "description": "OK"
                     },
-                    "400": {
-                        "description": "Failed. Bad post data."
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -246,8 +246,8 @@
                     "200": {
                         "description": "OK"
                     },
-                    "400": {
-                        "description": "Failed. Bad post data."
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
