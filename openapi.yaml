@@ -158,11 +158,7 @@ paths:
                 type: string
               examples:
                 response:
-                  value:  <html>
-    <script>
-        window.location.replace("https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_15868008551055_4857808_2225864_9021745&one_time_token=91b1d82cf11d6134171db82e6ec67e2a813debd0a8de71cb685d2ebda669e31f");
-    </script>
-</html>
+                  value:  <html><script>window.location.replace("https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_15868008551055_4857808_2225864_9021745&one_time_token=91b1d82cf11d6134171db82e6ec67e2a813debd0a8de71cb685d2ebda669e31f");</script></html>
         '500':
           description: Internal Server Error
     put:
