@@ -116,7 +116,7 @@ paths:
           content:
             success/json:
               schema:
-                $ref: '#/components/requestBodies/Pet'
+                $ref: '#/components/schemas/ResponsToken'
             success/html:
               schema:
                 $ref: '#/components/schemas/Pet'
