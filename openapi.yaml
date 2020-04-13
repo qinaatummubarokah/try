@@ -117,9 +117,9 @@ paths:
             success/json:
               schema:
                 $ref: '#/components/schemas/ResponsToken'
-            success/html:
+            failed/json:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: '#/components/schemas/ResponsTokenFailed'
         '500':
           description: Internal Server Error
     put:
@@ -687,6 +687,35 @@ components:
           description: api_gen_token
           type: string
           example: 935e4e1b7cdc0657fce323e4865966031ceaef8169a695dc70b728a11e9e9f73
+    ResponsTokenFailed :
+      type: object
+      properties:
+        id:
+          description: API_CALL
+          type: string
+          example: API_CALL_1234567890
+        status_code:
+          description: Will return the status based on code
+          type: string
+          example: 9999
+        status:
+          description: Will return the status as text FAILED
+          type: string
+          example: "GET_API_KEY_FAILED
+        desc:
+          description: Will return a description of the status
+          type: string
+          example: ERROR CREATING KEY
+        data:
+          description: Will return url to process payment
+            allOf:
+              - $ref: '#/components/schemas/Apigentokenfailed'
+              - type: object
+    Apigentokenfailed :
+      type: object
+        properties: 
+          api_gen_token:
+            description: api_gen_token
     ApiResponse:
       type: object
       properties:
