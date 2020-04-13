@@ -759,7 +759,7 @@ components:
           description: API_CALL
           type: string
           example: API_CALL_1586490272104432_5773512
-        status_code
+        status_code:
           description: Will return the status based on code
           type: string
           example: 0000
