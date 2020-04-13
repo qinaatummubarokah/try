@@ -105,7 +105,12 @@
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPayment"
                                 }
-                            },
+                            }
+                        }
+                    },
+					"200": {
+                        "description": "OK",
+                        "content":{,
                             "HTML":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPaymentHtml"
