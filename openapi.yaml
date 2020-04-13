@@ -114,10 +114,10 @@ paths:
         '200':
           description: OK
           content:
-            success:
+            success/json:
               schema:
                 $ref: '#/components/schemas/ResponsToken'
-            application/xml:
+            success/html:
               schema:
                 $ref: '#/components/schemas/Pet'
         '500':
