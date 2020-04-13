@@ -190,7 +190,7 @@ paths:
             }
       requestBody:
         $ref: '#/components/requestBodies/Pet'
-  '/v1/api/payment/do-payment':
+  '/v1/api/payment/do-paymentcxcxc':
     get:
       tags:
         - Web Payment SPIN
