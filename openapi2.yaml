@@ -98,28 +98,66 @@ x-tagGroups:
       - store_model
 paths:
   /v1/api/payment/get-token:
+    parameters:
+      - name: Accept-Language
+        in: header
+        description: "The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US"
+        example: en-US
+        required: false
+        schema:
+          type: string
+          default: en-AU
+      - name: cookieParam
+        in: cookie
+        description: Some cookie
+        required: true
+        schema:
+          type: integer
+          format: int64
     post:
       tags:
         - Web Payment SPIN
       summary: Get token to process payment
-      requestBody:
-        description : Before you process a web payment, you have to get a token first from SPIN using HTTP POST. The body in JSON and the response will be in JSON.
-        required: true
-        content: 
-            application/json:
-                schema:
-                    $ref: '#/components/schemas/RequestToken'
-      produces: application/json
+      description: Add new pet to the store inventory.
+      operationId: addPet
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResponsToken'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Pet'
+        '405':
+          description: Invalid input
+      security:
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+      x-code-samples:
+        - lang: 'C#'
+          source: |
+            PetStore.v1.Pet pet = new PetStore.v1.Pet();
+            pet.setApiKey("your api key");
+            pet.petType = PetStore.v1.Pet.TYPE_DOG;
+            pet.name = "Rex";
+            // set other fields
+            PetStoreResponse response = pet.create();
+            if (response.statusCode == HttpStatusCode.Created)
+            {
+              // Successfully created
+            }
+            else
+            {
+              // Something wrong -- check response for errors
+              Console.WriteLine(response.getRawResponse());
+            }
+        - lang: PHP
+          source: |
+            $form = new \PetStore\Entities\Pet();
+            $form->setPetType("Dog");
+            $form->setName("Rex");
+            // set other fields
+            try {
+                $pet = $client->pets()->create($form);
+            } catch (UnprocessableEntityException $e) {
+                var_dump($e->getErrors());
+            }
+      requestBody:
+        $ref: '#/components/requestBodies/Pet'
     put:
       tags:
         - pet
@@ -641,49 +679,6 @@ paths:
           description: successful operation
 components:
   schemas:
-    RequestToken:
-      type: object
-      properties:
-        api_key:
-          description: API Key (You can get the key and secret from SPIN Integration Team)
-          type: string
-          format: string
-          example: dev_my_store_key
-        api_secret:
-          description: API Secret (You can get the key and secret from SPIN Integration Team)
-          type: string
-          format: string
-          example: dev_secret_abcdefghjiklmnopqrstuvwxyz
-    ResponsToken :
-      type: object
-      properties: 
-        id:
-          description: API_CALL
-          type: string
-          example: API_CALL_1586490272104432_5773512
-        status_code:
-          description: Will return the status based on code
-          type: string
-          example: 0000
-        status :
-          description: Will return the status as text SUCCESS
-          type: string
-          example: GET_API_GEN_TOKEN_SUCCESS"
-        desc:
-          description: Will return a description of the status
-          type: string
-          example: GET_API_GEN_TOKEN_SUCCESS
-        data:
-          description: Will return url to process payment
-          allOf: 
-            $ref: '#/components/schemas/Apigentoken'
-    Apigentoken :
-      type: object
-      properties :
-        url:
-          description: api_gen_token
-          type: string
-          example: 935e4e1b7cdc0657fce323e4865966031ceaef8169a695dc70b728a11e9e9f73
     ApiResponse:
       type: object
       properties:
