@@ -744,9 +744,9 @@ components:
           example: ERROR CREATING KEY
         data:
           description: Will return url to process payment
-            allOf:
-              - $ref: '#/components/schemas/Apigentokenfailed'
-              - type: object
+          allOf:
+            - $ref: '#/components/schemas/Apigentokenfailed'
+            - type: object
     Apigentokenfailed :
       type: object
         properties: 
@@ -773,8 +773,9 @@ components:
           example: DO_PAYMENT_SUCCESS
         data:
           description: Will return url to process payment
-            - allOf:
-                $ref: '#/components/schemas/Urldopayment'
+          allOf:
+            - $ref: '#/components/schemas/Urldopayment'
+            - type: object
     Urldopayment :
       type: object
         properties:
@@ -817,6 +818,7 @@ components:
           description: Category ID
           allOf:
             - $ref: '#/components/schemas/Id'
+            - type: object
         name:
           description: Category name
           type: string
