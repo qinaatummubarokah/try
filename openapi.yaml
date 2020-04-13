@@ -231,6 +231,40 @@ paths:
                 $ref: '#/components/schemas/ResponsReversePayment'
         '500':
           description: Internal Server Error
+  /v1/api/payment/cancel-payment?invoice_code={invoice_code}:
+    get:
+      tags:
+        - Web Payment SPIN
+      summary: Cancel payment
+      parameters: 
+        - name: auth-key
+          in: header
+          required: true
+          description: api-key value
+          type: string
+          example: dev_my_store_key
+        - name: auth-token
+          in: header
+          required: true
+          description: sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()
+          type: string
+          example: auth_token_abcdefghjiklmnopqrstuvwxyz1234567890
+        - name: invoice_code
+          in: path
+          required: true
+          description: invoice code transaction
+          type: string
+          example: MY_STORE_INVOICE
+      produces: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            success/json:
+              schema:
+                $ref: '#/components/schemas/ResponsCancelPayment'
+        '500':
+          description: Internal Server Error
     put:
       tags:
         - pet
@@ -988,6 +1022,41 @@ components:
           description: Will return the status as text
           type: string
           example: ROLLBACK_SUCCESS
+        invoice_code:
+          description: Merchant Invoice Unique ID
+          type: string
+          example: ivd105119111
+    ResponsCancelPayment :
+      type: object
+      properties: 
+        id:
+          description: API_CALL
+          type: string
+          example: API_CALL_1234567890
+        status_code:
+          description: Will return the status based on code
+          type: string
+          example: 0000
+        status:
+          description: Will return the status as text FAILED
+          type: string
+          example: CANCEL_PAYMENT_SUCCESS
+        desc:
+          description: Will return a description of the status
+          type: string
+          example: CANCEL_PAYMENT_SUCCESS
+        data:
+          description: Will return reverse payment
+          allOf:
+            - $ref: '#/components/schemas/DataCancelPayment'
+            - type: object
+    DataCancelPayment : 
+      type: object
+      properties: 
+        orig_pay_session_trx:
+          description: the unique session of the transaction
+          type: string
+          example: TRX_1586779172185932_5306514_6043614_8703671
         invoice_code:
           description: Merchant Invoice Unique ID
           type: string
