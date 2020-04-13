@@ -145,19 +145,19 @@ paths:
             application/json:
                 schema:
                     $ref: '#/components/schemas/RequestDoPayment'
-      produces: application/json
-      responses:
-        '200':
-          description: OK
-          content:
-            success/json:
-              schema:
-                $ref: '#/components/schemas/ResponsToken'
-            failed/json:
-              schema:
-                $ref: '#/components/schemas/ResponsTokenFailed'
-        '500':
-          description: Internal Server Error
+        produces: application/json
+        responses:
+          '200':
+            description: OK
+            content:
+              success/json:
+                schema:
+                  $ref: '#/components/schemas/ResponsToken'
+                failed/json:
+                schema:
+                  $ref: '#/components/schemas/ResponsTokenFailed'
+          '500':
+            description: Internal Server Error
     put:
       tags:
         - pet
