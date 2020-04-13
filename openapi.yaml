@@ -778,11 +778,11 @@ components:
             - type: object
     Urldopayment :
       type: object
-        properties:
-          url:
-            description: url
-            type: string
-            example: https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_1586490272104432_6579559_780595_8077598&one_time_token=7470fdc9b918c06cf1d6590e20ae39be09f71e9326fafdea6fa23913e6d6418b
+      properties:
+        url:
+          description: url
+          type: string
+          example: https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_1586490272104432_6579559_780595_8077598&one_time_token=7470fdc9b918c06cf1d6590e20ae39be09f71e9326fafdea6fa23913e6d6418b
     ApiResponse:
       type: object
       properties:
