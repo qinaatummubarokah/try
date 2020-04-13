@@ -46,20 +46,12 @@ info:
 
   version: 1.0.0
   title: Payment Channel API Documentation
-  termsOfService: 'http://swagger.io/terms/'
-  contact:
-    name: API Support
-    email: apiteam@swagger.io
-    url: https://github.com/Redocly/redoc
   x-logo:
     url: 'https://i1.wp.com/goodmoney.id/wp-content/uploads/2019/10/spin.jpeg?fit=586%2C381&ssl=1'
     altText: Spin logo
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 externalDocs:
-  description: Find out how to create Github repo for your OpenAPI spec.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+  description: Find out our swagger documentation.
+  url: 'http://localhost:49013/swagger/'
 tags:
   - name: Web Payment SPIN
     description: The purpose of this document is to highlight how to connect to SPIN as a payment channel
