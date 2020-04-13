@@ -174,16 +174,19 @@ paths:
           required: true
           description: api-key value
           type: string
+          example: dev_my_store_key
         - name: auth-token
           in: header
           required: true
           description: sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()
           type: string
+          example: auth_token_abcdefghjiklmnopqrstuvwxyz1234567890
         - name: invoice_code
           in: path
           required: true
           description: invoice code transaction
           type: string
+          example: MY_STORE_INVOICE
       produces: application/json
       responses:
         '200':
@@ -192,9 +195,40 @@ paths:
             success/json:
               schema:
                 $ref: '#/components/schemas/ResponsCheckPayment'
-            failed/json:
+        '500':
+          description: Internal Server Error
+  /v1/api/payment/reverse-payment?invoice_code={invoice_code}:
+    get:
+      tags:
+        - Web Payment SPIN
+      summary: Reverse payment
+      parameters: 
+        - name: auth-key
+          in: header
+          required: true
+          description: api-key value
+          type: string
+          example: dev_my_store_key
+        - name: auth-token
+          in: header
+          required: true
+          description: sha256(“||%%||” + api-key +“||%%||” + invoice_code + “||%%||” +api_gen_token +“||%%||”).hexdigest()
+          type: string
+          example: auth_token_abcdefghjiklmnopqrstuvwxyz1234567890
+        - name: invoice_code
+          in: path
+          required: true
+          description: invoice code transaction
+          type: string
+          example: MY_STORE_INVOICE
+      produces: application/json
+      responses:
+        '200':
+          description: OK
+          content:
+            success/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ResponsReversePayment'
         '500':
           description: Internal Server Error
     put:
@@ -911,6 +945,53 @@ components:
           description: the unique session of the transaction
           type: string
           example: TRX_158670906323313_2097471_628892_9888700
+    ResponsReversePayment :
+      type: object
+      properties: 
+        id:
+          description: API_CALL
+          type: string
+          example: API_CALL_1234567890
+        status_code:
+          description: Will return the status based on code
+          type: string
+          example: 0000
+        status:
+          description: Will return the status as text FAILED
+          type: string
+          example: REVERSE_PAYMENT_SUCCESS
+        desc:
+          description: Will return a description of the status
+          type: string
+          example: REVERSE PAYMENT SUCCESS
+        data:
+          description: Will return reverse payment
+          allOf:
+            - $ref: '#/components/schemas/DataReversePayment'
+            - type: object
+    DataReversePayment : 
+      type: object
+      properties:
+        pay_session_trx:
+          description: the unique session of the transaction
+          type: string
+          example: TRX_158670906323313_2097471_628892_9888700
+        orig_trx_id:
+          description: SPIN Wallet ID
+          type: string
+          example: 1584942583-11056
+        trx_id:
+          description: The value returned from the transaction
+          type: string
+          example: 1584943239-11057
+        status_msg:
+          description: Will return the status as text
+          type: string
+          example: ROLLBACK_SUCCESS
+        invoice_code:
+          description: Merchant Invoice Unique ID
+          type: string
+          example: ivd105119111
     ApiResponse:
       type: object
       properties:

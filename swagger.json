@@ -549,7 +549,7 @@
                         "example": "REVERSE PAYMENT SUCCESS"
                     },
                     "data":{
-                        "description": "Will return url to process payment",
+                        "description": "Will return reverse payment",
                         "allOf":[
                             {
                                 "$ref": "#/components/schemas/DataReversePayment"
