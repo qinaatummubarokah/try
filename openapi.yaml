@@ -749,9 +749,6 @@ components:
             - type: object
     Apigentokenfailed :
       type: object
-      properties: 
-        api_gen_token:
-          description: api_gen_token
     RequestDoPayment : 
       type: object
       properties:
