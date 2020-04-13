@@ -152,7 +152,7 @@ paths:
           content:
             success/json:
               schema:
-                $ref: '#/components/schemas/ResponsToken'
+                $ref: '#/components/schemas/ResponsDoPayment'
             failed/json:
               schema:
                 $ref: '#/components/schemas/ResponsTokenFailed'
@@ -267,7 +267,7 @@ paths:
           required: false
           schema:
             type: string
-          example: "Bearer <TOKEN>"
+          example: Bearer <TOKEN>
         - name: petId
           in: path
           description: Pet id to delete
@@ -706,7 +706,7 @@ components:
         status :
           description: Will return the status as text SUCCESS
           type: string
-          example: GET_API_GEN_TOKEN_SUCCESS"
+          example: GET_API_GEN_TOKEN_SUCCESS
         desc:
           description: Will return a description of the status
           type: string
@@ -737,7 +737,7 @@ components:
         status:
           description: Will return the status as text FAILED
           type: string
-          example: "GET_API_KEY_FAILED
+          example: GET_API_KEY_FAILED
         desc:
           description: Will return a description of the status
           type: string
@@ -752,6 +752,36 @@ components:
         properties: 
           api_gen_token:
             description: api_gen_token
+    ResponsDoPayment : 
+      type: object
+      properties: 
+        id:
+          description: API_CALL
+          type: string
+          example: API_CALL_1586490272104432_5773512
+        status_code
+          description: Will return the status based on code
+          type: string
+          example: 0000
+        status:
+          description: Will return the status as text SUCCESS
+          type: string
+          example: DO_PAYMENT_SUCCESS
+        desc:
+          description: Will return a description of the status
+          type: string
+          example: DO_PAYMENT_SUCCESS
+        data:
+          description: Will return url to process payment
+            - allOf:
+                $ref: '#/components/schemas/Urldopayment'
+    Urldopayment :
+      type: object
+        properties:
+          url:
+            description: url
+            type: string
+            example: https://dev-open-api-web-1.spinpay.id/console/view-payment-option?pay_session_trx=TRX_1586490272104432_6579559_780595_8077598&one_time_token=7470fdc9b918c06cf1d6590e20ae39be09f71e9326fafdea6fa23913e6d6418b
     ApiResponse:
       type: object
       properties:
@@ -884,7 +914,7 @@ components:
         id:
           externalDocs:
             description: Find more info here
-            url: "https://example.com"
+            url: https://example.com
           description: Pet ID
           allOf:
             - $ref: '#/components/schemas/Id'
