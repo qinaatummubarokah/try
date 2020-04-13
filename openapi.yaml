@@ -758,22 +758,37 @@ components:
         amount:
           type: integer
           format: string
+          description: Transaction Amount
+          example: 20000
         wallet_id:
           type: string
           format: string
+          description: SPIN Wallet ID
+          example: 08121111111
         mid:
           type: string
           format: string
+          description: SPIN Store Merchant ID
+          example: dev_my_store_mid
         invoice_code:
           type: string
           format: string
+          description: Mechant Invoice Unique ID
+          example: MY_STORE_INVOICE
         content_type:
           type: string
           format: string
           required: false
+          description: return JSON/HTML
+          example: JSON
+          enum:
+            - JSON
+            - HTML
         merchant_callback:
           type: string
           format: url
+          description: Merchant Callback URL
+          example: https://my.store.url
     ResponsDoPayment : 
       type: object
       properties: 
