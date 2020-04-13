@@ -677,6 +677,7 @@ components:
           description: Will return url to process payment
           allOf: 
             - $ref: '#/components/schemas/Apigentoken'
+            - type: object
     Apigentoken :
       type: object
       properties :
