@@ -114,7 +114,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            success:
               schema:
                 $ref: '#/components/schemas/ResponsToken'
             application/xml:
