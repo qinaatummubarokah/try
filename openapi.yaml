@@ -120,6 +120,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Pet'
+        '500':
+          description: Internal Server Error
     put:
       tags:
         - pet
@@ -681,7 +683,7 @@ components:
     Apigentoken :
       type: object
       properties :
-        url:
+        api_gen_token:
           description: api_gen_token
           type: string
           example: 935e4e1b7cdc0657fce323e4865966031ceaef8169a695dc70b728a11e9e9f73
