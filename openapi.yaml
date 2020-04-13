@@ -133,11 +133,13 @@ paths:
           required: true
           description: api-key value
           type: string
+          example: dev_my_store_key
         - name: auth-token
           in: header
           required: true
-          description: SHA256 hash from some parameters
+          description: sha256(“||%%||” + api-key +“||%%||” amount + wallet_id + mid + invoice_code + merchant_callback “||%%||” +api_gen_token +“||%%||”)
           type: string
+          example: auth_token_abcdefghjiklmnopqrstuvwxyz1234567890
       requestBody:
         description : process data to get the Payment URL
         required: true
