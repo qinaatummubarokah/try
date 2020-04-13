@@ -752,6 +752,28 @@ components:
       properties: 
         api_gen_token:
           description: api_gen_token
+    RequestDoPayment : 
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: string
+        wallet_id:
+          type: string
+          format: string
+        mid:
+          type: string
+          format: string
+        invoice_code:
+          type: string
+          format: string
+        content_type:
+          type: string
+          format: string
+          required: false
+        merchant_callback:
+          type: string
+          format: url
     ResponsDoPayment : 
       type: object
       properties: 
