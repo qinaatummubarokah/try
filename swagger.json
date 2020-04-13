@@ -110,7 +110,7 @@
                     },
 					"200": {
                         "description": "OK",
-                        "content":{,
+                        "content":{
                             "HTML":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPaymentHtml"
