@@ -123,25 +123,25 @@ paths:
         '500':
           description: Internal Server Error
     /v1/api/payment/do-payment:
-    post:
-      tags:
-        - Web Payment SPIN
-      summary: Process payment
-      parameters: 
-        - name: auth-key
-          in: header
+      post:
+        tags:
+          - Web Payment SPIN
+        summary: Process payment
+        parameters: 
+          - name: auth-key
+            in: header
+            required: true
+            description: api-key value
+            type: string
+          - name: auth-token
+            in: header
+            required: true
+            description: SHA256 hash from some parameters
+            type: string
+        requestBody:
+          description : process data to get the Payment URL
           required: true
-          description: api-key value
-          type: string
-        - name: auth-token
-          in: header
-          required: true
-          description: SHA256 hash from some parameters
-          type: string
-      requestBody:
-        description : process data to get the Payment URL
-        required: true
-        content: 
+          content: 
             application/json:
                 schema:
                     $ref: '#/components/schemas/RequestDoPayment'
