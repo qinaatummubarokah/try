@@ -153,9 +153,12 @@ paths:
             success/json:
               schema:
                 $ref: '#/components/schemas/ResponsDoPayment'
-            failed/json:
+            application/xml:
               schema:
-                $ref: '#/components/schemas/ResponsTokenFailed'
+                type: string
+              examples:
+                response:
+                  value:  <Message> OK </Message>
         '500':
           description: Internal Server Error
     put:
