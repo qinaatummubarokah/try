@@ -117,9 +117,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponsToken'
-                 mapping:
-                  cat: '#/components/schemas/Cat'
-                  dog: '#/components/schemas/Dog'
     put:
       tags:
         - pet
