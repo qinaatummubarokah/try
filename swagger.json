@@ -333,12 +333,7 @@
                 }
             },
             "Apigentokenfailed" : {
-                "type": "object",
-                "properties": {
-                    "url":{
-                        "description": "api_gen_token"
-                    }
-                }
+                "type": "object"
             },
             "ResponsDoPayment" : {
                 "type": "object",
