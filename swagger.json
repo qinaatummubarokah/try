@@ -43,12 +43,12 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "success":{
+                            "success/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsToken"
                                 }
                             },
-                            "failed":{
+                            "failed/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsTokenFailed"
                                 }
@@ -101,12 +101,12 @@
                     "200": {
                         "description": "OK",
                         "content":{
-                            "JSON":{
+                            "success/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPayment"
                                 }
                             },
-                            "HTML":{
+                            "sucess/html":{
                                 "schema":{
                                     "$ref": "#/components/schemas/ResponsDoPaymentHtml"
                                 }
@@ -549,7 +549,7 @@
                         "example": "REVERSE PAYMENT SUCCESS"
                     },
                     "data":{
-                        "description": "Will return reverse payment",
+                        "description": "Will return url to process payment",
                         "allOf":[
                             {
                                 "$ref": "#/components/schemas/DataReversePayment"
